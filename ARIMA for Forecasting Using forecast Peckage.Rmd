@@ -1,0 +1,38 @@
+---
+title: "ARIMA for Forecasting use 'forecast' Peckage"
+author: "Yekynzr"
+---
+
+Install the required packages
+```{r}
+install.packages("forecast")
+```
+
+call the package that has been installed
+```{r}
+library(forecast)
+```
+
+Load data
+```{r}
+data("AirPassengers")
+ts_data <- AirPassengers
+```
+
+Customizing ARIMA Models
+```{r}
+model_arima <- auto.arima(ts_data)
+print(model_arima)
+```
+
+Doing forecasting
+```{r}
+forecast_result <- forecast(model_arima, h = 12)  # h = the number of periods you want to forecast
+print(forecast_result)
+```
+
+Visualization of Forecasting Results
+```{r}
+plot(forecast_result)
+```
+
